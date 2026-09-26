@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: signal-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /healthz
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TWELVEDATA_API_KEY
+        sync: false
